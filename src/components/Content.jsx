@@ -14,7 +14,7 @@ function Content({movie}) {
 //   runtime: 0,
 //   release_year: "",
 // }
- console.log(movie)
+//  console.log(movie)
  const url = "https://image.tmdb.org/t/p/w500" + movie?.poster_path
   return (
     <div className="sm:col-span-2 w-[90%] mx-auto">
@@ -32,7 +32,7 @@ function Content({movie}) {
             <p data-testid="movie-runtime">{movie.runtime}m</p>
         </div>
             
-            <div className="flex w-[50%]  sm:w-[25%] justify-between ">
+            <div className="flex w-[50%]  sm:w-[25%] justify-start gap-3 ">
             {
               movie?.genres?.map((genre) => {
                 return(

@@ -28,7 +28,7 @@ function Dashboard() {
   }, []);
   
   // console.log(loading)
-  console.log(movie)
+  // console.log(movie)
 
   if (loading){
     return <p>Loading...</p>
