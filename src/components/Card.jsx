@@ -5,19 +5,21 @@ import Idmb from '../assets/idmb.png'
 import Tomato from '../assets/tomato.png'
 import movieI from '../assets/Movie.png'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 // eslint-disable-next-line react/prop-types
 function Card( {movie} ) {
-    // const movie = {
-    //     image:movieI,
-    //     title:"Stranger Things",
-    //     idmb:"96.0",
-    //     movie: false,
-    //     tomato:"97%",
-    //     info: "USA 2016 - current",
-    //     genre: "Action, Adventure, Horror"
-    // }
-    // console.log(movie.poster_path)
+const [like, setLike] = useState("#D1D5DB")
+const [liked, setLiked] = useState(false)
+const handleClick = () => {
+if (liked === false) {
+setLike("#333")
+setLiked(true)
+} else{
+  setLike("#D1D5DB")
+  setLiked(false)
+}
+}
     const url = "https://image.tmdb.org/t/p/w500" + movie.poster_path
     // console.log(url)
     const math = movie.vote_average * 10
@@ -36,9 +38,9 @@ function Card( {movie} ) {
         <div className='h-[370px] bg-cover' style={{backgroundImage:  `url(${currentMovie.image})` }} data-testid="movie-poster">
             <div className='flex justify-between p-3'>
                 <p className='text-[#111827] text-[12px] font-bold p-1 bg-[#f3f4f6] rounded-[12px] opacity-80'>{currentMovie.movie}</p>
-                <button className='bg-[#f3f4f6] p-1 rounded-[50%] opacity-80'>
+                <button className='bg-[#f3f4f6] p-1 rounded-[50%] opacity-80' onClick={handleClick}>
                     <svg className='' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M3.17157 5.48284C4.73367 3.96185 7.26633 3.96185 8.82842 5.48284L9.99999 6.62359L11.1716 5.48284C12.7337 3.96185 15.2663 3.96185 16.8284 5.48284C18.3905 7.00383 18.3905 9.46984 16.8284 10.9908L9.99999 17.6396L3.17157 10.9908C1.60948 9.46984 1.60948 7.00383 3.17157 5.48284Z" fill="#D1D5DB"/>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M3.17157 5.48284C4.73367 3.96185 7.26633 3.96185 8.82842 5.48284L9.99999 6.62359L11.1716 5.48284C12.7337 3.96185 15.2663 3.96185 16.8284 5.48284C18.3905 7.00383 18.3905 9.46984 16.8284 10.9908L9.99999 17.6396L3.17157 10.9908C1.60948 9.46984 1.60948 7.00383 3.17157 5.48284Z" fill={like}/>
                     </svg>
                 </button>
             </div>

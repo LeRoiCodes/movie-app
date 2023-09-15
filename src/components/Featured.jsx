@@ -66,7 +66,7 @@ function Featured() {
   return (
     <div className='w-[100%] md:w-[80%] md:mx-auto mt-10'>
     <h1 className='text-black md:text-left text-center  text-4xl font-bold mb-7 '>Featured Movie</h1>
-    <div className="sm:flex sm:flex-wrap sm:gap-2 sm:justify-center md:justify-between md:gap-5">
+    <div className="sm:flex sm:flex-wrap sm:gap-2 sm:justify-center md:justify-start md:gap-5">
         { loading ? (
           <p>Loading...</p>
         ) :  movies.map((movie) => {
